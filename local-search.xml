@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>img转base64格式</title>
+    <link href="/2022/10/13/%E5%B0%8F%E7%BB%84%E4%BB%B6_img%E8%BD%ACbase64%E6%A0%BC%E5%BC%8F/"/>
+    <url>/2022/10/13/%E5%B0%8F%E7%BB%84%E4%BB%B6_img%E8%BD%ACbase64%E6%A0%BC%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="img-转-base64-格式"><a href="#img-转-base64-格式" class="headerlink" title="img 转 base64 格式"></a>img 转 base64 格式</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 获取图片转base64</span><br>getBase64 (file) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) &#123;<br>        <span class="hljs-keyword">const</span> reader = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>()<br>        <span class="hljs-keyword">let</span> imgResult = <span class="hljs-string">&#x27;&#x27;</span><br>        reader.<span class="hljs-title function_">readAsDataURL</span>(file)<br>        reader.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>          imgResult = reader.<span class="hljs-property">result</span><br>        &#125;<br>        reader.<span class="hljs-property">onerror</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) &#123;<br>          <span class="hljs-title function_">reject</span>(error)<br>        &#125;<br>        reader.<span class="hljs-property">onloadend</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>          <span class="hljs-title function_">resolve</span>(imgResult)<br>        &#125;<br>      &#125;)<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>常用组件</tag>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>自定义img发送请求</title>
+    <link href="/2022/10/13/%E5%B0%8F%E7%BB%84%E4%BB%B6_img%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/"/>
+    <url>/2022/10/13/%E5%B0%8F%E7%BB%84%E4%BB%B6_img%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</url>
+    
+    <content type="html"><![CDATA[<h1 id="img-自定义发送请求"><a href="#img-自定义发送请求" class="headerlink" title="img 自定义发送请求"></a>img 自定义发送请求</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;img&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">import</span> &#123; getToken &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/untils/token&#x27;</span></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;authImg&#x27;</span>,</span><br><span class="language-javascript">  <span class="hljs-attr">props</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-attr">authSrc</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">default</span>: <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  mounted () &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getImg</span>()</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-comment">// 方法</span></span><br><span class="language-javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">    getImg () &#123;</span><br><span class="language-javascript">      <span class="hljs-comment">// 获取需携带的token，看自己系统怎么获取的</span></span><br><span class="language-javascript">      <span class="hljs-keyword">let</span> token = <span class="hljs-string">`Bearer <span class="hljs-subst">$&#123;getToken()&#125;</span>`</span></span><br><span class="language-javascript">      <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(<span class="hljs-title class_">Image</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>, <span class="hljs-string">&#x27;authsrc&#x27;</span>, &#123;</span><br><span class="language-javascript">        <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">        <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">        <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span></span><br><span class="language-javascript">      &#125;)</span><br><span class="language-javascript">      <span class="hljs-keyword">let</span> img = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">img</span></span><br><span class="language-javascript">      <span class="hljs-keyword">let</span> request = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>()</span><br><span class="language-javascript">      request.<span class="hljs-property">responseType</span> = <span class="hljs-string">&#x27;blob&#x27;</span></span><br><span class="language-javascript">      request.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;get&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">authSrc</span>, <span class="hljs-literal">true</span>)</span><br><span class="language-javascript">      <span class="hljs-comment">// 携带请求头</span></span><br><span class="language-javascript">      request.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&#x27;Authorization&#x27;</span>, token)</span><br><span class="language-javascript">      request.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">if</span> (request.<span class="hljs-property">readyState</span> === <span class="hljs-title class_">XMLHttpRequest</span>.<span class="hljs-property">DONE</span> &amp;&amp; request.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;</span><br><span class="language-javascript">          img.<span class="hljs-property">src</span> = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(request.<span class="hljs-property">response</span>)</span><br><span class="language-javascript">          img.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">            <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(img.<span class="hljs-property">src</span>)</span><br><span class="language-javascript">          &#125;</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript">      request.<span class="hljs-title function_">send</span>(<span class="hljs-literal">null</span>)</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-comment">// 监听</span></span><br><span class="language-javascript">  <span class="hljs-attr">watch</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-comment">// vue2这里表示父组件是对象属性，子组件不会主动调用，需要深度监听一下调用</span></span><br><span class="language-javascript">    <span class="hljs-attr">authSrc</span>: &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">      handler (n, o) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">if</span> (n) &#123;</span><br><span class="language-javascript">          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getImg</span>()</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
+      
+      <tag>常用组件</tag>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
